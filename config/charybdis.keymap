@@ -4,11 +4,11 @@
 // Keymap del Urchin (webcome/zmk-urchin-config) pasado al Charybdis Nano35-MOD.
 // Las 30 teclas de la cuadrícula ocupan las mismas posiciones que en el Urchin.
 // Pulgares (posiciones 30-35, de izquierda a derecha):
-//   30  nueva: mientras la mantienes, la bola hace scroll (capa scroll)
-//   31  Tab            ┐
-//   32  raise          │ como en el Urchin
-//   33  Enter / lower  │
-//   34  Espacio        ┘
+//   30  Tab            (como en el Urchin)
+//   31  raise          (como en el Urchin)
+//   32  nueva, la más alejada: mientras la mantienes, la bola hace scroll
+//   33  Enter / lower  (como en el Urchin)
+//   34  Espacio        (como en el Urchin)
 //   35  nueva: clic izquierdo
 // Al mover la bola se enciende sola la capa automouse: U, I y O hacen clic
 // (izquierdo, derecho y central) hasta que pulsas otra tecla o pasan 600 ms.
@@ -243,7 +243,7 @@
         cmd_shift {
             timeout-ms = <50>;
             bindings = <&kp LS(LGUI)>;
-            key-positions = <10 31>;  // A + Tab (en el Urchin el Tab era la posición 30)
+            key-positions = <10 30>;  // A + Tab
         };
     };
 
@@ -391,8 +391,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &ht2hold 6 Z      &kp X   &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &ht2 5 DOT  &ht2hold 7 FSLH
         //╰──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┴──────────╯
-        //                      │  scroll  │  Tab     │  raise   │   │ Ent/lower│  Espacio │  clic    │
-                                  &mo 10     &kp TAB    &sl 1          &ht2hold 2 ENTER  &kp SPACE  &mkp LCLK
+        //                      │  Tab     │  raise   │  scroll  │   │ Ent/lower│  Espacio │  clic    │
+                                  &kp TAB    &sl 1      &mo 10         &ht2hold 2 ENTER  &kp SPACE  &mkp LCLK
         //                      ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯
             >;
         };
@@ -495,7 +495,7 @@
         >;
         };
 
-        // Capa 10 (nueva): la activa el pulgar izquierdo de fuera (&mo 10). No cambia
+        // Capa 10 (nueva): la activa el pulgar izquierdo más alejado (&mo 10). No cambia
         // ninguna tecla; solo hace que la bola haga scroll mientras está activa
         // (scroll-layers en charybdis_right.overlay).
         scroll {
