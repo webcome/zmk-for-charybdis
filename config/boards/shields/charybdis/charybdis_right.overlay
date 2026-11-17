@@ -123,11 +123,11 @@
 // - require-prior-idle-ms: no se enciende si has tecleado hace menos de 400 ms,
 //   para que rozar la bola mientras escribes no la active.
 // - excluded-positions: teclas que no la apagan al pulsarlas: U, I y O (6 7 8),
-//   el pulgar de scroll (32) y el del clic (35). Cualquier otra la apaga en el
+//   el pulgar de scroll (32) y el del clic (33). Cualquier otra la apaga en el
 //   acto y se escribe normal.
 &zip_temp_layer {
     require-prior-idle-ms = <400>;
-    excluded-positions = <6 7 8 32 35>;
+    excluded-positions = <6 7 8 32 33>;
 };
 
 

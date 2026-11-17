@@ -7,9 +7,9 @@
 //   30  Tab            (como en el Urchin)
 //   31  raise          (como en el Urchin)
 //   32  nueva, la más alejada: mientras la mantienes, la bola hace scroll
-//   33  Enter / lower  (como en el Urchin)
-//   34  Espacio        (como en el Urchin)
-//   35  nueva: clic izquierdo
+//   33  nueva, la más alejada: clic izquierdo
+//   34  Enter / lower  (como en el Urchin)
+//   35  Espacio        (como en el Urchin)
 // Al mover la bola se enciende sola la capa automouse: U, I y O hacen clic
 // (izquierdo, derecho y central) hasta que pulsas otra tecla o pasan 600 ms.
 
@@ -391,8 +391,8 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &ht2hold 6 Z      &kp X   &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &ht2 5 DOT  &ht2hold 7 FSLH
         //╰──────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┴──────────╯
-        //                      │  Tab     │  raise   │  scroll  │   │ Ent/lower│  Espacio │  clic    │
-                                  &kp TAB    &sl 1      &mo 10         &ht2hold 2 ENTER  &kp SPACE  &mkp LCLK
+        //                      │  Tab     │  raise   │  scroll  │   │  clic    │ Ent/lower│  Espacio │
+                                  &kp TAB    &sl 1      &mo 10         &mkp LCLK  &ht2hold 2 ENTER  &kp SPACE
         //                      ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯
             >;
         };
