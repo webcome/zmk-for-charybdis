@@ -5,6 +5,7 @@
  */
  
 #include "charybdis.dtsi"
+#include <input/processors.dtsi>
 
 &default_transform {
     col-offset = <5>;
@@ -58,7 +59,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <1>;
+        scroll-layers = <10>;  // capa "scroll" del keymap (pulgar izquierdo de fuera)
         //snipe-layers = <2>;
       // automouse-layer = <3>;
     };
@@ -112,7 +113,21 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        // Al mover la bola se enciende la capa 9 del keymap (automouse: clics en
+        // U, I y O) y se apaga a los 600 ms sin moverla.
+        input-processors = <&zip_temp_layer 9 600>;
     };
+};
+
+// Cuándo no se enciende, o se apaga antes, la capa automouse:
+// - require-prior-idle-ms: no se enciende si has tecleado hace menos de 400 ms,
+//   para que rozar la bola mientras escribes no la active.
+// - excluded-positions: teclas que no la apagan al pulsarlas: U, I y O (6 7 8),
+//   el pulgar de scroll (30) y el del clic (35). Cualquier otra la apaga en el
+//   acto y se escribe normal.
+&zip_temp_layer {
+    require-prior-idle-ms = <400>;
+    excluded-positions = <6 7 8 30 35>;
 };
 
 
